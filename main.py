@@ -12,6 +12,14 @@ class Quiz:
         for i in range(len(self.choices)):
             print(f"{i + 1}. {self.choices[i]}")
 
+quiz_list = [
+    Quiz("지금 위치가 /home/user/project 일 때 cd .. 을 실행하면 이동하는 곳은?", ["/", "/home/user", "/home", "/home/user/project"], 2),
+    Quiz("Docker 이미지와 컨테이너의 관계로 옳은 것은?", ["컨테이너를 지우면 그 이미지도 함께 지워진다", "이미지는 지금 실행 중인 프로그램이다", "이미지 하나로 컨테이너를 여러 개 실행할 수 있다", "컨테이너는 이미지를 만들 때만 쓴다"], 3),
+    Quiz("내 컴퓨터에서 바꾼 파일을 GitHub에 올리기까지의 순서로 옳은 것은?", ["push → add → commit", "commit → add → push", "add → push → commit", "add → commit → push"], 4),
+    Quiz(".gitignore 파일의 역할로 옳은 것은?", ["Git이 추적하지 않을 파일 이름을 적어 둔다", "저장소에서 지울 파일 이름을 적어 둔다", "GitHub 로그인 정보를 저장한다", "커밋 메시지를 모아 둔다"], 1),
+    Quiz('"age = input("나이: ")" 를 실행하고 20을 입력하면 age의 자료형은?', ["int", "float", "str", "bool"], 3)
+    ]
+
 
 while True:
     print("================================")
