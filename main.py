@@ -20,6 +20,7 @@ quiz_list = [
     Quiz('"age = input("나이: ")" 를 실행하고 20을 입력하면 age의 자료형은?', ["int", "float", "str", "bool"], 3)
     ]
 
+best_score = None
 
 while True:
     print("================================")
@@ -72,6 +73,9 @@ while True:
                             print("틀렸습니다.")
                     check_score = score / len(quiz_list) * 100
                     print(f"총 점수: {score}/{len(quiz_list)} ({check_score:.2f}%)")
+                    if best_score is None or check_score > best_score:
+                        best_score = check_score
+                        print("최고 점수를 갱신했습니다!")
 
             elif n == 2:
                 print("2. 퀴즈 추가")
@@ -129,7 +133,11 @@ while True:
 
             elif n == 4:
                 print("4. 점수 확인")
-                print("준비 중인 기능 입니다.")
+                if best_score is None:
+                    print("아직 퀴즈를 푼 기록이 없습니다. 먼저 퀴즈를 풀어 주세요.")
+                    continue
+                print(f"최고 점수: {best_score:.2f}%")
+
             elif n == 5:
                 print("5. 종료")
                 print("프로그램을 종료합니다.")
