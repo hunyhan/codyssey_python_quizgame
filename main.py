@@ -120,7 +120,13 @@ while True:
 
             elif n == 3:
                 print("3. 퀴즈 목록")
-                print("준비 중인 기능 입니다.")
+                if len(quiz_list) == 0:
+                    print("등록된 퀴즈가 없습니다. 퀴즈를 추가해 주세요.")
+                    continue
+                print(f"등록된 퀴즈: {len(quiz_list)}개")
+                for i in range(len(quiz_list)):
+                    print(f"{i + 1}. {quiz_list[i].question}")
+
             elif n == 4:
                 print("4. 점수 확인")
                 print("준비 중인 기능 입니다.")
