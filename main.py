@@ -75,7 +75,49 @@ while True:
 
             elif n == 2:
                 print("2. 퀴즈 추가")
-                print("준비 중인 기능 입니다.")
+
+                while True:
+                    question = input("문제를 입력해 주세요: ")
+                    if question == "":
+                        print("입력이 없습니다. 다시 입력해 주세요.")
+                        continue
+                    break
+
+                choices = []
+
+                for i in range(4):
+                    while True:
+                        choice = input(f"{i + 1}번 선택지를 입력해 주세요: ")
+
+                        if choice == "":
+                            print("입력이 없습니다. 다시 입력해 주세요.")
+                            continue
+
+                        choices.append(choice)
+                        break
+
+                while True:
+                    try:
+                        answer_input = input("정답 번호를 입력해 주세요 (1~4): ")
+
+                        if answer_input == "":
+                            print("입력이 없습니다. 다시 입력해 주세요.")
+                            continue
+
+                        answer = int(answer_input)
+
+                        if answer < 1 or answer > 4:
+                            print("1~4 사이의 숫자를 입력해 주세요.")
+                            continue
+                        break
+                    except ValueError:
+                        print("잘못된 입력입니다. 숫자를 입력해 주세요.")
+                        continue
+
+                quiz = Quiz(question, choices, answer)
+                quiz_list.append(quiz)
+                print("퀴즈가 추가되었습니다.")
+
             elif n == 3:
                 print("3. 퀴즈 목록")
                 print("준비 중인 기능 입니다.")
