@@ -44,7 +44,35 @@ while True:
         if 1 <= n <= 5:
             if n == 1:
                 print("1. 퀴즈 풀기")
-                print("준비 중인 기능 입니다.")
+                if len(quiz_list) == 0:
+                    print("퀴즈가 없습니다. 퀴즈를 추가해 주세요.")
+                    continue
+                else:
+                    score = 0
+                    for quiz in quiz_list:
+                        quiz.display_question()
+
+                        while True:
+                            try:
+                                user_answer = int(input("정답을 입력해 주세요 (1~4): "))
+                                if user_answer < 1 or user_answer > 4:
+                                    print("1~4 사이의 숫자를 입력해 주세요.")
+                                    continue
+                                break
+        
+                            except ValueError:
+                                print("잘못된 입력입니다. 숫자를 입력해 주세요.")
+                                continue   
+
+                        check = quiz.check_answer(int(user_answer))
+                        if check:
+                            print("정답입니다!")
+                            score += 1
+                        else:
+                            print("틀렸습니다.")
+                    check_score = score / len(quiz_list) * 100
+                    print(f"총 점수: {score}/{len(quiz_list)} ({check_score:.2f}%)")
+
             elif n == 2:
                 print("2. 퀴즈 추가")
                 print("준비 중인 기능 입니다.")
