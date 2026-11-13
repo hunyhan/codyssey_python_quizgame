@@ -90,18 +90,38 @@ class QuizGame:
                 continue
             return number
 
+    def clear_screen(self):
+        print("\033[2J\033[H", end="")
+
+    def print_title(self, title):
+        print(f"──── {title} " + "─" * 23)
+        print()
+
+    def pause(self):
+        print()
+        input("Enter를 누르면 메뉴로 돌아갑니다...")
+
     def show_menu(self):
-        print("================================")
-        print("Python Quiz Game")
-        print("================================")
+        if self.best_score is None:
+            best = "기록 없음"
+        else:
+            best = f"{self.best_score:.2f}%"
+
+        print("╔════════════════════════════════════╗")
+        print("║                                    ║")
+        print("║          PYTHON QUIZ GAME          ║")
+        print("║                                    ║")
+        print("╚════════════════════════════════════╝")
         print()
-        print("메뉴를 선택해 주세요. 메뉴 번호를 입력해 주세요.")
+        print(f"  등록된 퀴즈 {len(self.quiz_list)}개  |  최고 점수 {best}")
         print()
-        print("1. 퀴즈 풀기")
-        print("2. 퀴즈 추가")
-        print("3. 퀴즈 목록")
-        print("4. 점수 확인")
-        print("5. 종료")
+        print("  [1] 퀴즈 풀기")
+        print("  [2] 퀴즈 추가")
+        print("  [3] 퀴즈 목록")
+        print("  [4] 점수 확인")
+        print("  [5] 종료")
+        print()
+        print("─" * 38)
 
     def play(self):
         if len(self.quiz_list) == 0:
@@ -109,7 +129,10 @@ class QuizGame:
             return
 
         score = 0
-        for quiz in self.quiz_list:
+        total = len(self.quiz_list)
+        for i in range(total):
+            quiz = self.quiz_list[i]
+            print(f"[문제 {i + 1}/{total}]")
             quiz.display_question()
             user_answer = self.input_number("정답을 입력해 주세요 (1~4): ", 1, 4)
             if quiz.check_answer(user_answer):
@@ -117,7 +140,9 @@ class QuizGame:
                 score += 1
             else:
                 print("틀렸습니다.")
+            print()
 
+        print("─" * 38)
         check_score = score / len(self.quiz_list) * 100
         print(f"총 점수: {score}/{len(self.quiz_list)} ({check_score:.2f}%)")
         if self.best_score is None or check_score > self.best_score:
@@ -160,24 +185,27 @@ class QuizGame:
             while True:
                 self.show_menu()
                 n = self.input_number("원하는 메뉴를 선택해 주세요: ", 1, 5)
+                self.clear_screen()
 
                 if n == 1:
-                    print("1. 퀴즈 풀기")
+                    self.print_title("퀴즈 풀기")
                     self.play()
                 elif n == 2:
-                    print("2. 퀴즈 추가")
+                    self.print_title("퀴즈 추가")
                     self.add_quiz()
                 elif n == 3:
-                    print("3. 퀴즈 목록")
+                    self.print_title("퀴즈 목록")
                     self.show_list()
                 elif n == 4:
-                    print("4. 점수 확인")
+                    self.print_title("점수 확인")
                     self.show_score()
                 elif n == 5:
-                    print("5. 종료")
                     self.save()
-                    print("프로그램을 종료합니다.")
+                    print("저장했습니다. 프로그램을 종료합니다.")
                     break
+
+                self.pause()
+                self.clear_screen()
 
         except (KeyboardInterrupt, EOFError):
             print()
