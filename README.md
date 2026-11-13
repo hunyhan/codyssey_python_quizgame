@@ -42,7 +42,7 @@ codyssey_python_quizgame/
 ├── .gitignore    # state.json, __pycache__, .env 등 Git에서 제외
 ├── state.json    # 실행하면 생기는 데이터 파일 (Git에 올리지 않음)
 └── docs/         # 수행 증거. 단계별 기록과 화면
-    ├── 01~13 *.md
+    ├── 01~14 *.md
     └── images/   # 캡처 화면
 ```
 
@@ -78,7 +78,8 @@ codyssey_python_quizgame/
 
 | 완료 | 수행 항목 | 검증 방법 | 증거 |
 |---|---|---|---|
-| ✅ | 개발 환경 | Python 3.12.10, VSCode Git Bash | [개발 환경](docs/01-environment.md) |
+| ✅ | 개발 환경 | Python 3.12.10, Git 2.54.0, VSCode Git Bash | [버전 확인](docs/14-final-run.md) · [개발 환경](docs/01-environment.md) |
+| ✅ | 최종 실행 화면 | 메뉴, 퀴즈 추가, 목록, 풀기, 점수 | [최종 실행 화면](docs/14-final-run.md) |
 | ✅ | 메뉴와 잘못된 입력 처리 | 빈 입력, 숫자 아님, 범위 밖 숫자 다시 묻기 | [메뉴 첫 작성](docs/04-first-drafts.md) · [메뉴 브랜치](docs/06-branch-merge.md) |
 | ✅ | Quiz 클래스 | `__init__`, `check_answer`, `display_question` 실행 | [Quiz 클래스](docs/04-first-drafts.md) · [브랜치 병합](docs/06-branch-merge.md) |
 | ✅ | 기본 퀴즈 5개 | `len(quiz_list)`가 5 | [과제 저장소](docs/05-new-repo.md) · [PR #1](docs/07-pull-request.md) |
@@ -108,6 +109,7 @@ codyssey_python_quizgame/
 | 11 | [QuizGame 클래스로 구조 정리](docs/11-quiz-game-class.md) | PR #6, 리팩터링 |
 | 12 | [state.json 저장/불러오기](docs/12-state-json.md) | PR #7 |
 | 13 | [README 작성](docs/13-readme.md) | PR #8 |
+| 14 | [최종 실행 화면](docs/14-final-run.md) | 개발 환경 버전, 메뉴·추가·목록·풀기·점수 |
 
 ## 트러블슈팅
 | 문제 | 원인 | 해결 | 기록 |
