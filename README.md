@@ -43,7 +43,7 @@ codyssey_python_quizgame/
 ├── .gitignore    # state.json, __pycache__, .env 등 Git에서 제외
 ├── state.json    # 실행하면 생기는 데이터 파일 (Git에 올리지 않음)
 └── docs/         # 수행 증거. 단계별 기록과 화면
-    ├── 01~14 *.md
+    ├── 01~15 *.md
     └── images/   # 캡처 화면
 ```
 
@@ -93,6 +93,7 @@ codyssey_python_quizgame/
 | ✅ | Git 명령 `clone`, `checkout`, `merge`, `pull` | 과제 저장소 clone, 기능 브랜치, 병합 | [과제 저장소](docs/05-new-repo.md) · [브랜치와 병합](docs/06-branch-merge.md) |
 | ✅ | Pull Request로 기능 합치기 | PR #1~#8, Merge 뒤 브랜치 정리 | [첫 PR](docs/07-pull-request.md) · [PR 화면](docs/08-quiz-play.md) |
 | ✅ | 의미 있는 커밋 10개 이상 | `git log --oneline --graph` | [README PR와 그래프](docs/13-readme.md) |
+| ✅ | 저장소 복제 실습 | 다른 폴더에 `clone` → 수정·`push` → 원래 폴더에서 `pull`로 반영 확인 | [복제 실습](docs/15-clone-practice.md) |
 
 ## 개발 과정 기록
 | 순서 | 페이지 | 내용 |
@@ -111,6 +112,7 @@ codyssey_python_quizgame/
 | 12 | [state.json 저장/불러오기](docs/12-state-json.md) | PR #7 |
 | 13 | [README 작성](docs/13-readme.md) | PR #8 |
 | 14 | [최종 실행 화면](docs/14-final-run.md) | 개발 환경 버전, 메뉴·추가·목록·풀기·점수 |
+| 15 | [저장소 복제 실습](docs/15-clone-practice.md) | `clone`, `push`, `pull`로 두 폴더 동기화 |
 
 ## 트러블슈팅
 | 문제 | 원인 | 해결 | 기록 |
